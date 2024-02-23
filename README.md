@@ -16,13 +16,13 @@ Before running the application, ensure you have the following dependencies insta
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/demo-App-sii/front-end.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd <project-directory>
+    cd demo-app
     ```
 
 3. Install dependencies:
