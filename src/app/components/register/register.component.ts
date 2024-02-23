@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
 
+import { FormBuilder, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { passwordMatchValidator } from '../../shared/password-match.directive';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../interfaces/auth';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// primeNg
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-import { FormBuilder, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { passwordMatchValidator } from '../../shared/password-match.directive';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +25,7 @@ import { passwordMatchValidator } from '../../shared/password-match.directive';
     ReactiveFormsModule,
     ButtonModule,
     CommonModule,
+    ToastModule,
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
@@ -37,7 +46,12 @@ export class RegisterComponent {
     }
   );
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private messageService: MessageService,
+    private router: Router
+  ) {}
 
   get fullName() {
     return this.registerForm.controls['fullName'];
@@ -51,5 +65,31 @@ export class RegisterComponent {
   }
   get confirmPassword() {
     return this.registerForm.controls['confirmPassword'];
+  }
+
+  submitDetails() {
+    const postData = { ...this.registerForm.value };
+    delete postData.confirmPassword;
+    this.authService.registerUser(postData as User).subscribe(
+      (response) => {
+        console.log(response);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Registered Successfully',
+        });
+        setTimeout(() => {
+          this.router.navigate(['login']);
+        }, 2000);
+      },
+      (error) => {
+        console.log(error);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Something Went Wrong',
+        });
+      }
+    );
   }
 }

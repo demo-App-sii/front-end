@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+
+import { FormBuilder, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+//primeNg
+
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-import { FormBuilder, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +20,7 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     ButtonModule,
     CommonModule,
+    ToastModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
