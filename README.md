@@ -1,27 +1,65 @@
-# DemoApp
+# Front-end
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
+This is an Angular 17 application for user authentication with registration and login interfaces. The application utilizes standalone components and is integrated with PrimeNG components for UI enhancement.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before running the application, ensure you have the following dependencies installed:
 
-## Code scaffolding
+- Angular CLI: 16.0.0-next.0
+- Node: 18.18.0
+- Package Manager: npm 9.8.1
+- JSON Server (for running the mock backend): [Installation Guide](https://github.com/typicode/json-server#install)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
 
-## Build
+1. Clone the repository to your local machine:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    ```bash
+    git clone <repository-url>
+    ```
 
-## Running unit tests
+2. Navigate to the project directory:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    ```bash
+    cd <project-directory>
+    ```
 
-## Running end-to-end tests
+3. Install dependencies:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    ```bash
+    npm install
+    ```
 
-## Further help
+## Running the Application
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To run the application locally, follow these steps:
+
+1. Start the Angular development server:
+
+    ```bash
+    ng serve
+    ```
+
+2. Start the JSON Server to simulate the backend:
+
+    ```bash
+    json-server --watch db.json
+    ```
+
+3. Open your browser and navigate to `http://localhost:4200` to access the application.
+
+## Features
+
+- **Registration:** Users can register by providing their full name, email, password, and confirming the password.
+- **Login:** Registered users can log in using their email and password.
+- **Authentication Guard:** The application includes a guard to restrict access to certain routes for logged-in users only.
+
+## Future Enhancements
+
+- Integration with a backend API using Spring Boot.
+- Additional features such as password recovery, user profile management, etc.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
