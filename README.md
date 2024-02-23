@@ -16,13 +16,13 @@ Before running the application, ensure you have the following dependencies insta
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone <repository-url>
+    git clone [<repository-url>](https://github.com/demo-App-sii/front-end.git)
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd <project-directory>
+    cd demo-app
     ```
 
 3. Install dependencies:
@@ -60,6 +60,3 @@ To run the application locally, follow these steps:
 - Integration with a backend API using Spring Boot.
 - Additional features such as password recovery, user profile management, etc.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
